@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+body {
+  background-image: url("/static/daniil-kuzelev-C4G18Paw0d4-unsplash1.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align:center;
+}
+</style>
+
+  <div class="page-header header-filter header-small" data-parallax="true" >
+  <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+          <h2 class="title" style="color:white;">{{ Student.name }}'s Dashboard</h2>
+        </div>
+      </div>
+    </div>
+</div>
+
+<div class="main main-raised">
+    <div class="container">
+      <div class="card card-plain">
+        <div class="card-body">
+          <h3 class="card-title">{{Student.branch}}{{" "}}{{Student.roll_no}}</h3>
+          <br />
+          {% for i in range(length) %}
+          <div class="table-responsive">
+            <table class="table table-shopping table-striped">
+              <thead>
+
+                <tr>
+                  <th>Subject</th>
+                  <th class="text-center">Teacher</th>
+                  <th class="text-center">Lectures Attended</th>
+                  <th class="text-center">Lectures Conducted</th>
+                  <th class="text-center">Percentage</th>
+                </tr>
+              </thead>
+              <tbody>
+
+                  <tr>
+                    <td class="td-name">
+                      {{all[0][i].teaching_sub}}
+                    </td>
+                    <td class="td-number text-center">
+                      {{all[0][i].name}}
+                    </td>
+                    <td class="td-number text-center">
+                      {{all[2][i]}}
+                    </td>
+                    <td class="td-number text-center">
+                      {{all[1][i]}}
+                    </td>
+                    <td class="td-number text-center">
+                      {% if all[1][i]==0 %}
+                      {{0}}
+                      {% else %}
+                      {{(all[2][i]*100)//(all[1][i])}}
+                      {% endif %}
+                    </td>
+                  </tr>
+
+              </tbody>
+            </table>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+
+
+
+
+<!--</div>-->
+{% endblock %}
+

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+
+<div class="jumbotron" style="background-color:#dfe7e8">
+  <h1 class="text-center">{{Student.name}}'s Dashboard</h1>
+  <hr>
+    <div class="card-body">{{"Name:  "}}{{ Student.name }}</div>
+
+    <div class="card-body">{{"Email:  "}}{{ Student.email }}</div>
+
+    <div class="card-body">{{"Branch:  "}}{{ Student.branch }}</div>
+
+  <div class="card-body">{{"RollNo:  "}}{{Student.roll_no}}</div>
+  <h4>{{"Subjects: "}}</h4>
+  <ul>
+    {% for i in Teacher %}
+  <li>
+    {{i.teaching_sub}}
+  </li>
+  {% endfor %}
+  </ul>
+
+<br>
+<tr>
+  <a href="{{url_for('/.update_student')}}"  class="btn btn-danger " style="text-align:center;">Edit Details</a>
+  <a href="{{url_for('/.add_subjects')}}"  class="btn btn-danger " style="text-align:center;">Add Subjects</a>
+    <a href="{{url_for('/.view_attendance')}}"  class="btn btn-danger " style="text-align:center;">View Attendance</a>
+</tr>
+</div>
+{% endblock %}

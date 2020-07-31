@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1 class="text-center" style="color:white;">Add Subjects</h1>
+<style>
+body
+{
+color:white;
+}
+</style>
+    {% if Teachers %}
+    <form action="" method="post" >
+      <table class="table is-striped is-fullwidth">
+        {% for i in Teachers %}
+        <tr>
+          <td>
+            <label class="checkbox" style="color:white">
+              <input style="color:white;" type="checkbox" name="subject" value="{{ i.staff_id }} "/>
+            </label>
+              {{ i.teaching_sub }}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+
+      <div class="field is-grouped">
+        <div class="control">
+          <button class="btn btn-danger btn-raised btn-lg">ADD</button>
+        </div>
+      </div>
+    </form>
+{% else %}
+<h3 class="text-center" style="color:white;">{{"Oops!!....Currently no subject is avaialable to Add"}} </h3>
+    {% endif %}
+
+{% endblock %}

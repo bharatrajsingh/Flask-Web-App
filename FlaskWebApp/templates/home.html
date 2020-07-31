@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<div class="page-header header-filter" data-parallax="true" style="background-color:rgba(255,255,255,0);" >
+  <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+            <div class="jumbotron" style="background-color:rgba(255,255,255,0);text-align:center;width:200;height:200">
+  <h1 class="display-4" style="font-family:verdana;color:white;">ERP.</h1>
+              <h4 style=color:white;">Home for both Teachers and Students </h4>
+  <a href="{{url_for('/.Login')}}"  class="btn btn-danger btn-raised btn-lg"  style="text-align:center">LogIn(Teacher/Student)</a>
+    <br>
+              <br>
+  <a href="{{url_for('/.register')}}" class="btn btn-danger btn-raised btn-lg"style="text-align:center">SignUp(Teacher/Student)</a>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+
+{% endblock %}

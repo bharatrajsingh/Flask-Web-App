@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+
+<div class="jumbotron" style="background-color:#dfe7e8">
+  <h1 class="text-center">{{Teacher.name}}'s Dashboard</h1>
+    <hr>
+    <div class="card-body">{{"Name:  "}}{{ Teacher.name }}</div>
+
+    <div class="card-body">{{"Email:  "}}{{ Teacher.email }}</div>
+
+    <div class="card-body">{{"Teaching Subject:  "}}{{ Teacher.teaching_sub }}</div>
+
+    <h3>{{"Students : " }} </h3>
+  <ul>
+
+{% if Teacher.students %}
+    {% for i in Teacher.students %}
+    <li>{{ i.name }}</li>
+    {% endfor %}
+  </ul>
+  <br>
+
+    <a href="{{url_for('/.take_attendance')}}"  class="btn btn-danger" style="text-align:center">Mark Attendance</a>
+</div>
+{% else %}
+{{"Currenntly no Student is enrolled!!"}}
+{% endif %}
+{% endblock %}

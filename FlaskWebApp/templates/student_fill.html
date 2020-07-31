@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container" style="padding:35px 70px 50px 300px;" >
+    <div class="jumbotron" style="background-color:#ffffff ;height: 600px;width:500px;">
+    <h1 align="center" style="color:black">Details</h1>
+
+        {% for message in get_flashed_messages() %}
+      <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+      </div>
+    {% endfor %}
+<form method="POST" action="/fill_student" >
+    {{form.hidden_tag()}}
+    {{form.name.label (style="color:black") }}{{form.name(class="form-control form-control-lg",placeholder="Your Name")}}<br>
+    {{form.email.label (style="color:black") }}{{form.email(class="form-control form-control-lg",placeholder="Enter email", value=current_user.email)}}<br>
+    {{form.roll_no.label (style="color:black")}}{{form.roll_no(class="form-control form-control-lg" ,placeholder="Your Rollno")}}<br>
+    {{form.branch.label (style="color:black")}}{{form.branch(class="form-control form-control-lg" ,placeholder="Your branch")}}<br>
+    {{form.submit(class="btn btn-danger btn-raised btn-lg")}}
+</form>
+
+
+        </div>
+    </div>
+{% endblock content %}

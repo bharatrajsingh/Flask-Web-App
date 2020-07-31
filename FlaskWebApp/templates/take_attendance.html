@@ -1,0 +1,66 @@
+
+
+{% extends "base.html" %}
+{% block content %}
+<body class="shopping-cart sidebar-collapse">
+  <div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('/static/daniil-kuzelev-C4G18Paw0d4-unsplash1.jpg');">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 ml-auto mr-auto text-center">
+          <h2 class="title" style="color:white;">Mark Attendance</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="main main-raised">
+    <div class="container">
+      <div class="card card-plain">
+        <div class="card-body">
+          {% if not students: %}
+            <h4>There are no students...</h4>
+          {% else: %}
+            <div class="table-responsive">
+              <form action=" " method="POST">
+                <h3 class="card-title">Lecture Date</h3>
+                <input type="date" class="form-control" placeholder="Date..." name="date" required>
+                <table class="table table-shopping table-striped">
+                  <thead>
+                    <tr>
+                      <th class="text-center">Roll Number</th>
+                      <th class="text-center">Name</th>
+                      <th class="text-center">Mark Attendance</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for student in students: %}
+                      <tr>
+                        <td class="td-number text-center">
+                          {{ student.roll_no }}
+                        </td>
+                        <td class="td-number text-center">
+                          {{ student.name }}
+                        </td>
+                        <td class="td-number text-center">
+                          <div class="form-check disabled">
+                            <label class="form-check-label">
+                              <input value="{{ student.student_id }}" class="form-check-input" type="checkbox" name="check-box">
+                                <br>
+                              <span class="form-check-sign">
+                                <span class="check"></span>
+                              </span>
+                            </label>
+                          </div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <button type="submit" class="btn btn-danger btn-raised btn-lg">Save</button>
+              </form>
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
